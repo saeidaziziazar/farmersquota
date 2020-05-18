@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  direction: rtl;
+}
+
+body {
+  height: 100%;
+  background: linear-gradient(to left, #557A95, rgba(115, 149, 174, 0.8)) no-repeat;
+  font-family: "B Homa", "B Yekan";
+  color: #403f42;
+}
+
+.abs-middle {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-form {
+  border-right: 2px solid #236155;
+  padding: 20px;
+}
+
+.login-text {
+  line-height: 4.5rem;
+  text-align: center;
+}
+
+.login-label {
+  margin-right: 12px;
+  transform: translateY(15%);
+  color: #ff3d3d;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+.login-label-show {
+  opacity: 1;
+}
+
+.login-input {
+  border-color: #ced4da;
+  transition: border-color 0.2s ease-in-out;
+}
+.login-input::placeholder {
+  color: inherit;
+  opacity: 1;
+}
+.login-input-error {
+  border-color: #ff3d3d;
+}
+
+.login-btn {
+  background-color: #236155;
+  color: #403f42;
+}
+
+/*# sourceMappingURL=main.css.map */

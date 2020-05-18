@@ -1,0 +1,74 @@
+$primary-color-dark: #557A95;
+$primary-color-light: #7395AE;
+$secondary-color-dark: #236155;
+$secondary-color-light: #B1A296;
+$text-color: #403f42;
+$error-color: #ff3d3d;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    direction: rtl;
+}
+
+body {
+    height: 100%;
+    background: linear-gradient(to left, $primary-color-dark, rgba($primary-color-light, .8)) no-repeat;
+    font-family: "B Homa", "B Yekan";
+    color: $text-color;
+}
+
+.abs-middle {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-form {
+    border-right: 2px solid $secondary-color-dark;
+    padding: 20px;
+}
+
+.login-text {
+    line-height: 4.5rem;
+    text-align: center;
+}
+
+.login-label {
+    margin-right: 12px;
+    transform: translateY(15%);
+    color: $error-color;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+
+    &-show {
+        opacity: 1;
+    }
+}
+
+.login-input {
+    &::placeholder {
+        color: inherit;
+        opacity: 1;
+    }
+
+    border-color: #ced4da;
+    transition: border-color .2s ease-in-out;
+
+    &-error {
+        border-color: $error-color;
+    }
+}
+
+.login-btn {
+    background-color: $secondary-color-dark;
+    color: $text-color;
+}

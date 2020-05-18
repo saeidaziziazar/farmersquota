@@ -1,9 +1,13 @@
-$primary-color-dark: #557A95;
-$primary-color-light: #7395AE;
-$secondary-color-dark: #236155;
-$secondary-color-light: #B1A296;
-$text-color: #403f42;
-$error-color: #ff3d3d;
+// $primary-color-dark: #557A95;
+// $primary-color-light: #7395AE;
+// $secondary-color-dark: #3b8072;
+// $secondary-color-light: #B1A296;
+$primary-color-dark: #2C3531;
+$primary-color-light: #116466;
+$secondary-color-dark: #D9B08C;
+$secondary-color-light: #FFCB9A;
+$text-color: #D1E8E2;
+$error-color: #df2e2e;
 
 * {
     box-sizing: border-box;
@@ -33,13 +37,14 @@ body {
 }
 
 .login-form {
-    border-right: 2px solid $secondary-color-dark;
-    padding: 20px;
+    border-right: 1px solid $secondary-color-dark;
+    padding: 0 15px;
 }
 
 .login-text {
     line-height: 4.5rem;
     text-align: center;
+    text-shadow: 1px 1px 5px rgba(#000, 0.3);
 }
 
 .login-label {
@@ -54,6 +59,20 @@ body {
     }
 }
 
+.login-form-group {
+    margin: 0;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    &-btn {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+}
+
 .login-input {
     &::placeholder {
         color: inherit;
@@ -62,6 +81,7 @@ body {
 
     border-color: #ced4da;
     transition: border-color .2s ease-in-out;
+    box-shadow: 2px 2px 8px rgba(#000, 0.3);
 
     &-error {
         border-color: $error-color;
@@ -71,4 +91,17 @@ body {
 .login-btn {
     background-color: $secondary-color-dark;
     color: $text-color;
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 8px rgba(#000, 0.3);
+}
+
+.error-list {
+    margin: 10px;
+    color: $error-color;
+
+    li {
+        list-style: none;
+        text-shadow: 1px 1px 5px rgba(#000, 0.3);
+    }
 }

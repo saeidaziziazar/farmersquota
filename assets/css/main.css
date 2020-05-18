@@ -13,9 +13,9 @@ html {
 
 body {
   height: 100%;
-  background: linear-gradient(to left, #557A95, rgba(115, 149, 174, 0.8)) no-repeat;
+  background: linear-gradient(to left, #2C3531, rgba(17, 100, 102, 0.8)) no-repeat;
   font-family: "B Homa", "B Yekan";
-  color: #403f42;
+  color: #D1E8E2;
 }
 
 .abs-middle {
@@ -26,19 +26,20 @@ body {
 }
 
 .login-form {
-  border-right: 2px solid #236155;
-  padding: 20px;
+  border-right: 1px solid #D9B08C;
+  padding: 0 15px;
 }
 
 .login-text {
   line-height: 4.5rem;
   text-align: center;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 .login-label {
   margin-right: 12px;
   transform: translateY(15%);
-  color: #ff3d3d;
+  color: #df2e2e;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
@@ -46,21 +47,46 @@ body {
   opacity: 1;
 }
 
+.login-form-group {
+  margin: 0;
+}
+.login-form-group:not(:last-child) {
+  margin-bottom: 20px;
+}
+.login-form-group-btn {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
 .login-input {
   border-color: #ced4da;
   transition: border-color 0.2s ease-in-out;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 .login-input::placeholder {
   color: inherit;
   opacity: 1;
 }
 .login-input-error {
-  border-color: #ff3d3d;
+  border-color: #df2e2e;
 }
 
 .login-btn {
-  background-color: #236155;
-  color: #403f42;
+  background-color: #D9B08C;
+  color: #D1E8E2;
+  width: 100%;
+  height: 100%;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.error-list {
+  margin: 10px;
+  color: #df2e2e;
+}
+.error-list li {
+  list-style: none;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 /*# sourceMappingURL=main.css.map */

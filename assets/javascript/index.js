@@ -1,7 +1,29 @@
 const bcrypt = require('bcrypt');
+const anime = require('animejs');
 
 document.addEventListener('DOMContentLoaded', () => {
     loginValidation();
+
+    anime.timeline({
+        delay: 200,
+        easing: 'easeOutExpo',
+    }).add({
+        targets: '.login-btn',
+        duration: 2000,
+        opacity: 1,
+    }).add({
+        targets: '.login-btn',
+        duration: 300,
+        translateX: [-80, 0],
+    }, 200);
+
+    // anime({
+    //     targets: '.login-btn',
+    //     duration: 1000,
+    //     delay: 1000,
+    //     translateX: [-100, 0],
+    //     easing: 'easeInOutExpo',
+    // })
 })
 
 /*************

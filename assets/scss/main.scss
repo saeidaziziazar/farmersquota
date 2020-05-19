@@ -1,7 +1,3 @@
-// $primary-color-dark: #557A95;
-// $primary-color-light: #7395AE;
-// $secondary-color-dark: #3b8072;
-// $secondary-color-light: #B1A296;
 $primary-color-dark: #2C3531;
 $primary-color-light: #116466;
 $secondary-color-dark: #D9B08C;
@@ -93,6 +89,8 @@ body {
     color: $text-color;
     width: 100%;
     height: 100%;
+    // transform: translateX(150%);
+    opacity: 0;
     box-shadow: 2px 2px 8px rgba(#000, 0.3);
 }
 

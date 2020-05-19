@@ -7,7 +7,7 @@ $primary-color-light: #116466;
 $secondary-color-dark: #D9B08C;
 $secondary-color-light: #FFCB9A;
 $text-color: #D1E8E2;
-$error-color: #df2e2e;
+$error-color: #f07d7d;
 
 * {
     box-sizing: border-box;
@@ -24,7 +24,7 @@ html {
 
 body {
     height: 100%;
-    background: linear-gradient(to left, $primary-color-dark, rgba($primary-color-light, .8)) no-repeat;
+    background: radial-gradient($primary-color-dark, rgba($primary-color-light, .8)) no-repeat;
     font-family: "B Homa", "B Yekan";
     color: $text-color;
 }
@@ -103,5 +103,11 @@ body {
     li {
         list-style: none;
         text-shadow: 1px 1px 5px rgba(#000, 0.3);
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+
+        &.show {
+            opacity: 1;
+        }
     }
 }

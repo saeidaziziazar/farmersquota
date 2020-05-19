@@ -12,7 +12,7 @@ function createWindow () {
     })
 
     // and load the index.html of the app.
-    win.loadFile('index.html')
+    win.loadFile('assets/html/index.html')
     
     // removing the menu bar
     win.removeMenu()

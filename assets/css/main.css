@@ -13,7 +13,7 @@ html {
 
 body {
   height: 100%;
-  background: linear-gradient(to left, #2C3531, rgba(17, 100, 102, 0.8)) no-repeat;
+  background: radial-gradient(#2C3531, rgba(17, 100, 102, 0.8)) no-repeat;
   font-family: "B Homa", "B Yekan";
   color: #D1E8E2;
 }
@@ -39,7 +39,7 @@ body {
 .login-label {
   margin-right: 12px;
   transform: translateY(15%);
-  color: #df2e2e;
+  color: #f07d7d;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
@@ -69,7 +69,7 @@ body {
   opacity: 1;
 }
 .login-input-error {
-  border-color: #df2e2e;
+  border-color: #f07d7d;
 }
 
 .login-btn {
@@ -82,11 +82,16 @@ body {
 
 .error-list {
   margin: 10px;
-  color: #df2e2e;
+  color: #f07d7d;
 }
 .error-list li {
   list-style: none;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.error-list li.show {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=main.css.map */

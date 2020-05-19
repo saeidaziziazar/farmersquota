@@ -5,17 +5,36 @@ document.addEventListener('DOMContentLoaded', () => {
     loginValidation();
 
     anime.timeline({
-        delay: 200,
-        easing: 'easeOutExpo',
+        delay: 600,
+        easing: 'easeInOutQuint',
     }).add({
+        targets: '.login-text',
+        duration: 1800,
+        delay: 0,
+        translateX: [80, 0],
+        opacity: [0, 1],
+    }).add({
+        targets: '#username',
+        duration: 2000,
+        delay: 0,
+        opacity: [0, 1],
+    }, '-=1200').add({
+        targets: '#password',
+        duration: 2000,
+        delay: 0,
+        opacity: [0, 1],
+    }, '-=1200').add({
         targets: '.login-btn',
         duration: 2000,
-        opacity: 1,
-    }).add({
-        targets: '.login-btn',
-        duration: 300,
+        delay: 0,
         translateX: [-80, 0],
-    }, 200);
+        opacity: [0, 1],
+    }, '-=1600').add({
+        targets: '.container',
+        duration: 20000,
+        delay: 0,
+        scale: [1, 1.1],
+    });
 
     // anime({
     //     targets: '.login-btn',

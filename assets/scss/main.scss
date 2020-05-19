@@ -3,7 +3,7 @@ $primary-color-light: #116466;
 $secondary-color-dark: #D9B08C;
 $secondary-color-light: #FFCB9A;
 $text-color: #D1E8E2;
-$error-color: #f07d7d;
+$error-color: #ff3c3c;
 
 * {
     box-sizing: border-box;
@@ -80,7 +80,18 @@ body {
     box-shadow: 2px 2px 8px rgba(#000, 0.3);
 
     &-error {
-        border-color: $error-color;
+        animation: inputbg 1s ease-in-out infinite;
+    }
+}
+@keyframes inputbg {
+    0% {
+        border-color: rgba($error-color, 0.1);
+    }
+    50% {
+        border-color: rgba($error-color, 0.8);
+    }
+    100% {
+        border-color: rgba($error-color, 0.1);
     }
 }
 
@@ -89,8 +100,6 @@ body {
     color: $text-color;
     width: 100%;
     height: 100%;
-    // transform: translateX(150%);
-    opacity: 0;
     box-shadow: 2px 2px 8px rgba(#000, 0.3);
 }
 

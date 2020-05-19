@@ -39,7 +39,7 @@ body {
 .login-label {
   margin-right: 12px;
   transform: translateY(15%);
-  color: #f07d7d;
+  color: #ff3c3c;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
@@ -69,21 +69,31 @@ body {
   opacity: 1;
 }
 .login-input-error {
-  border-color: #f07d7d;
+  animation: inputbg 1s ease-in-out infinite;
 }
 
+@keyframes inputbg {
+  0% {
+    border-color: rgba(255, 60, 60, 0.1);
+  }
+  50% {
+    border-color: rgba(255, 60, 60, 0.8);
+  }
+  100% {
+    border-color: rgba(255, 60, 60, 0.1);
+  }
+}
 .login-btn {
   background-color: #D9B08C;
   color: #D1E8E2;
   width: 100%;
   height: 100%;
-  opacity: 0;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .error-list {
   margin: 10px;
-  color: #f07d7d;
+  color: #ff3c3c;
 }
 .error-list li {
   list-style: none;

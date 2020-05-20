@@ -69,7 +69,7 @@ body {
   opacity: 1;
 }
 .login-input-error {
-  animation: inputbg 1s ease-in-out infinite;
+  animation: inputbg 1s ease-in-out 5;
 }
 
 @keyframes inputbg {

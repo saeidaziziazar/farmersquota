@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 
 function createWindow () {
     // Create the browser window.
@@ -9,22 +9,32 @@ function createWindow () {
         webPreferences: {
             nodeIntegration: true
         }
-    })
+    }) 
 
     // and load the index.html of the app.
     win.loadFile('assets/html/index.html')
     
     // removing the menu bar
-    win.removeMenu()
+    // win.removeMenu()
 
-    // Open the DevTools.
-    win.webContents.openDevTools()
+    var menu = Menu.buildFromTemplate([
+        {
+            label: 'Open dev tool',
+            accelerator: 'F12',
+            click() {
+                // Open the DevTools.
+                win.webContents.openDevTools()
+            }
+        }
+    ])
+    Menu.setApplicationMenu(menu)
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(createWindow)
+
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

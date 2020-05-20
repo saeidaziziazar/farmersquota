@@ -80,7 +80,7 @@ body {
     box-shadow: 2px 2px 8px rgba(#000, 0.3);
 
     &-error {
-        animation: inputbg 1s ease-in-out infinite;
+        animation: inputbg 1s ease-in-out 5;
     }
 }
 @keyframes inputbg {

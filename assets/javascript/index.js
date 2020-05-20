@@ -2,48 +2,82 @@ const bcrypt = require('bcrypt');
 const anime = require('animejs');
 
 document.addEventListener('DOMContentLoaded', () => {
+    loadingAnimation();
     loginValidation();
+})
 
+
+/*************
+* Adding some loading animations 
+*/
+function loadingAnimation() {
     anime.timeline({
         delay: 600,
         easing: 'easeInOutQuint',
     }).add({
         targets: '.login-text',
-        duration: 1800,
+        duration: 1200,
         delay: 0,
         translateX: [80, 0],
         opacity: [0, 1],
     }).add({
         targets: '#username',
-        duration: 2000,
+        duration: 1600,
         delay: 0,
         opacity: [0, 1],
     }, '-=1200').add({
         targets: '#password',
-        duration: 2000,
+        duration: 1600,
         delay: 0,
         opacity: [0, 1],
     }, '-=1200').add({
         targets: '.login-btn',
-        duration: 2000,
+        duration: 1200,
         delay: 0,
         translateX: [-80, 0],
         opacity: [0, 1],
-    }, '-=1600').add({
-        targets: '.container',
-        duration: 20000,
-        delay: 0,
-        scale: [1, 1.1],
-    });
+    }, '-=900');
+}
 
-    // anime({
-    //     targets: '.login-btn',
-    //     duration: 1000,
-    //     delay: 1000,
-    //     translateX: [-100, 0],
-    //     easing: 'easeInOutExpo',
-    // })
-})
+function leavingAnimations() {
+    anime.timeline({
+        easing: 'easeInOutQuint',
+        delay: 0,
+    }).add({
+        targets: '.container',
+        duration: 6000,
+        scale: [1, 1.03],
+    }).add({
+        targets: '.login-btn',
+        duration: 1200,
+        delay: 0,
+        translateX: [0, -80],
+        opacity: [1, 0],
+    }, 1000).add({
+        targets: '#password',
+        duration: 1600,
+        delay: 0,
+        opacity: [1, 0],
+    }, 1600).add({
+        targets: '#username',
+        duration: 1600,
+        delay: 0,
+        opacity: [1, 0],
+    }, 2400).add({
+        targets: '#loginform',
+        duration: 600,
+        delay: 0,
+        opacity: [1, 0]
+    }, 2800).add({
+        targets: '.login-text',
+        duration: 2000,
+        delay: 0,
+        scale: [1,8],
+        translateX: [0, -150],
+        opacity: [1, 0],
+    }, 2500)
+}
+
 
 /*************
  * input validation
@@ -100,7 +134,10 @@ function authantication() {
                     if (!result) {
                         errorLi.classList.add('show');
                     } else {
-                        errorLi.classList.remove('show');
+                        leavingAnimations();
+                        setTimeout(() => {
+                            window.location.replace('test.html');
+                        }, 4000);
                     }
                 })
             } else {

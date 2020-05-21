@@ -1,10 +1,25 @@
 const bcrypt = require('bcrypt');
 const anime = require('animejs');
+const remote = require('electron').remote
 
 document.addEventListener('DOMContentLoaded', () => {
     loadingAnimation();
     loginValidation();
 })
+
+
+/*********
+ * set session for loged user
+ */
+function setSession(id) {
+    const cookie = { url: 'http://myapp.com', name: 'id', value: id.toString() }
+    remote.session.defaultSession.cookies.set(cookie)
+    .then(() => {
+        console.log('asasas');
+    }, (error) => {
+        console.error(error)
+    })
+}
 
 
 /*************
@@ -130,10 +145,11 @@ function authantication() {
     connection.query(query, (error, result, fields) => {
         if (!error) {
             if (result[0]) {
-                bcrypt.compare(passInput, result[0].password).then(function(result) {
-                    if (!result) {
+                bcrypt.compare(passInput, result[0].password).then(function(res) {
+                    if (!res) {
                         errorLi.classList.add('show');
                     } else {
+                        setSession(result[0].id);
                         leavingAnimations();
                         setTimeout(() => {
                             window.location.replace('test.html');

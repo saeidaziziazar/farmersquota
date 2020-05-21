@@ -17,17 +17,17 @@ function createWindow () {
     // removing the menu bar
     // win.removeMenu()
 
-    var menu = Menu.buildFromTemplate([
-        {
-            label: 'Open dev tool',
-            accelerator: 'F12',
-            click() {
-                // Open the DevTools.
-                win.webContents.openDevTools()
-            }
-        }
-    ])
-    Menu.setApplicationMenu(menu)
+    // var menu = Menu.buildFromTemplate([
+    //     {
+    //         label: 'Open dev tool',
+    //         accelerator: 'F12',
+    //         click() {
+    //             // Open the DevTools.
+    //             win.webContents.openDevTools()
+    //         }
+    //     }
+    // ])
+    // Menu.setApplicationMenu(menu)
 }
 
 // This method will be called when Electron has finished

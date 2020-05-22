@@ -11,23 +11,31 @@ function createWindow () {
         }
     }) 
 
-    // and load the index.html of the app.
+    // and load the login.html of the app.
     win.loadFile('assets/html/login.html')
     
     // removing the menu bar
     // win.removeMenu()
 
-    // var menu = Menu.buildFromTemplate([
-    //     {
-    //         label: 'Open dev tool',
-    //         accelerator: 'F12',
-    //         click() {
-    //             // Open the DevTools.
-    //             win.webContents.openDevTools()
-    //         }
-    //     }
-    // ])
-    // Menu.setApplicationMenu(menu)
+    var menu = Menu.buildFromTemplate([
+        {
+            label: 'Open dev tool',
+            accelerator: 'F12',
+            click() {
+                // Open the DevTools.
+                win.webContents.openDevTools()
+            }
+        },
+        {
+            label: 'Reload',
+            accelerator: 'F5',
+            click() {
+                // Reload the window
+                win.reload()
+            }
+        }
+    ])
+    Menu.setApplicationMenu(menu)
 }
 
 // This method will be called when Electron has finished

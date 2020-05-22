@@ -11,14 +11,26 @@ document.addEventListener('DOMContentLoaded', () => {
 /*********
  * set session for loged user
  */
-function setSession(id) {
-    const cookie = { url: 'http://myapp.com', name: 'id', value: id.toString() }
-    remote.session.defaultSession.cookies.set(cookie)
-    .then(() => {
-        console.log('asasas');
-    }, (error) => {
-        console.error(error)
-    })
+function setSession(id, name) {
+    const Sessionid = {
+        'url' : 'http://myapp.com', 
+        'name' : 'id', 
+        'value' : id.toString()
+    }
+    const Sessionname = {
+        'url' : 'http://myapp.com', 
+        'name' : 'name', 
+        'value' : name.toString()
+    }
+    remote.session.defaultSession.cookies.set(Sessionid)
+    remote.session.defaultSession.cookies.set(Sessionname)
+
+    // remote.session.defaultSession.cookies.get({})
+    // .then((cookies) => {
+    //     console.log(cookies)
+    // }).catch((error) => {
+    //     console.log(error)
+    // })
 }
 
 
@@ -149,13 +161,13 @@ function authantication() {
                     if (!res) {
                         errorLi.classList.add('show');
                     } else {
-                        setSession(result[0].id);
+                        setSession(result[0].id, result[0].name);
                         leavingAnimations();
                         setTimeout(() => {
-                            window.location.replace('test.html');
+                            window.location.replace('home.html');
                         }, 4000);
                     }
-                })
+                });
             } else {
                 errorLi.classList.add('show');
             }

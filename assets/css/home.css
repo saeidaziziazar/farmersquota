@@ -48,6 +48,20 @@ footer {
   background-color: rgba(255, 203, 154, 0.6);
   border-radius: 5px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.customers .list-group, .orders .list-group {
+  height: 100%;
+  overflow: hidden;
+  padding: 10px;
+}
+.customers .list-group .list-group-item, .orders .list-group .list-group-item {
+  background-color: transparent;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+.customers .list-group .list-group-item:not(:last-child), .orders .list-group .list-group-item:not(:last-child) {
+  border-bottom: 1px solid #D1E8E2;
 }
 
 .username {

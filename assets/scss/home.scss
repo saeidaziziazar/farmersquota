@@ -24,6 +24,23 @@ footer {
     background-color: rgba($secondary-color-light, .6);
     border-radius: 5px;
     box-shadow: 4px 4px 8px rgba(#000, .3);
+    overflow: hidden;
+
+    .list-group {
+        height: 100%;
+        overflow: hidden;
+        padding: 10px;
+
+        .list-group-item {
+            background-color: transparent;
+            text-shadow: 1px 1px 5px rgba(#000, 0.3);
+            border: none;
+            
+            &:not(:last-child) {
+                border-bottom: 1px solid $text-color;
+            }
+        }
+    }
 }
 
 .username {

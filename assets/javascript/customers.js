@@ -2,13 +2,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
     customerIndex();
 })
 
-function liOnClick() {
-    console.log('asas');
-    
-    document.querySelectorAll('.list-group-item').forEach((el, index) => {
-        console.log(el);
-    })
-}
 
 /********
  * get all customers from DB
@@ -30,7 +23,16 @@ function customerIndex() {
                 li.classList.add('list-group-item');
                 li.innerHTML = value.first_name + ' ' + value.last_name + ' | ' + value.phone_number;
                 li.addEventListener('click', (e) => {
-                    console.log(value.id);
+                    ul.childNodes.forEach((item, index) => {
+                        item.classList.remove('list-group-item-active');
+
+                        if (item === e.target) {
+                            item.classList.add('list-group-item-active');
+                        }
+                    }) 
+                })
+                li.addEventListener('dblclick', (e) => {
+                    console.log(e.target);
                 })
                 ul.appendChild(li);
             })

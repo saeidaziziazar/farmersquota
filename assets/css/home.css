@@ -56,12 +56,27 @@ footer {
   padding: 10px;
 }
 .customers .list-group .list-group-item, .orders .list-group .list-group-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: transparent;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   border: none;
+  font-size: 95%;
+  transition: all 0.5s ease-in-out;
 }
 .customers .list-group .list-group-item:not(:last-child), .orders .list-group .list-group-item:not(:last-child) {
   border-bottom: 1px solid #D1E8E2;
+}
+.customers .list-group .list-group-item:hover p, .orders .list-group .list-group-item:hover p {
+  cursor: pointer;
+  color: rgba(44, 53, 49, 0.5);
+  text-shadow: 1px 1px 5px rgba(209, 232, 226, 0.2);
+}
+.customers .list-group .list-group-item-active, .orders .list-group .list-group-item-active {
+  color: rgba(44, 53, 49, 0.5);
+  text-shadow: 1px 1px 5px rgba(209, 232, 226, 0.2);
+  background-color: rgba(255, 203, 154, 0.5);
 }
 
 .username {

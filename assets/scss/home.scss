@@ -32,12 +32,30 @@ footer {
         padding: 10px;
 
         .list-group-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
             background-color: transparent;
             text-shadow: 1px 1px 5px rgba(#000, 0.3);
             border: none;
+            font-size: 95%;
+            transition: all .5s ease-in-out;
             
             &:not(:last-child) {
                 border-bottom: 1px solid $text-color;
+            }
+
+            &:hover p {
+                cursor: pointer;
+                color: rgba($primary-color-dark, .5);
+                text-shadow: 1px 1px 5px rgba($text-color, .2);
+            }
+
+            &-active {
+                color: rgba($primary-color-dark, .5);
+                text-shadow: 1px 1px 5px rgba($text-color, .2);
+                // border-bottom: transparent !important;
+                background-color: rgba($secondary-color-light, .5);
             }
         }
     }

@@ -58,7 +58,7 @@ function customerIndex() {
             let addBtn = document.createElement('div');
             addBtn.classList.add('add-btn');
             addBtn.addEventListener('click', (e) => {
-                this.customerEdit();
+                this.customerCreate(addBtn);
             });
 
             // appending ul to div.customers
@@ -74,3 +74,16 @@ function customerIndex() {
 function customerEdit() {
     document.querySelector('.edit-customer').classList.add('edit-customer-show');
 }
+
+function customerCreate(addBtn) {
+    let editDiv = document.querySelector('.edit-customer')
+    
+    if (addBtn.classList.contains('add-btn-close')) {
+        editDiv.classList.remove('edit-customer-show');
+        addBtn.classList.remove('add-btn-close')
+    } else {
+        editDiv.classList.add('edit-customer-show');
+        addBtn.classList.add('add-btn-close')
+    }
+}
+

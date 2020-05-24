@@ -81,6 +81,7 @@ footer {
   background-color: rgba(255, 203, 154, 0.6);
   border-radius: 50%;
   z-index: 6;
+  transition: background 0.5s ease-in-out;
 }
 .customers .add-btn:hover, .orders .add-btn:hover {
   cursor: pointer;
@@ -90,20 +91,31 @@ footer {
   position: absolute;
   background-color: #D1E8E2;
   left: 50%;
-  transform: translate(-50%, 70%) rotate(45deg);
+  transform: translate(-50%, 70%);
   width: 2px;
   height: 12px;
   background-color: #fff;
+  transition: transform 0.5s ease-in-out;
 }
 .customers .add-btn:after, .orders .add-btn:after {
   content: "";
   position: absolute;
   background-color: #D1E8E2;
   left: 50%;
-  transform: translate(-50%, 70%) rotate(135deg);
+  transform: translate(-50%, 70%) rotate(90deg);
   width: 2px;
   height: 12px;
   background-color: #fff;
+  transition: transform 0.5s ease-in-out;
+}
+.customers .add-btn-close, .orders .add-btn-close {
+  background: rgba(44, 53, 49, 0.3);
+}
+.customers .add-btn-close:before, .orders .add-btn-close:before {
+  transform: translate(-50%, 70%) rotate(45deg);
+}
+.customers .add-btn-close:after, .orders .add-btn-close:after {
+  transform: translate(-50%, 70%) rotate(135deg);
 }
 .customers .list-group, .orders .list-group {
   height: 100%;

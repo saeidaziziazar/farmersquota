@@ -171,6 +171,8 @@ function authantication() {
             } else {
                 errorLi.classList.add('show');
             }
+        } else {
+            console.log('db connection error');
         }
     });
 }

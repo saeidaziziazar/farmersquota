@@ -40,6 +40,7 @@ body {
 .button:focus {
   outline: none;
 }
+
 .button-primary {
   background-color: #2C3531;
 }

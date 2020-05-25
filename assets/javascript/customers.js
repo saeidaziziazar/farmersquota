@@ -71,10 +71,17 @@ function customerIndex() {
     });
 }
 
+/*******
+ * edit a specific customer
+ */
 function customerEdit() {
     document.querySelector('.edit-customer').classList.add('edit-customer-show');
 }
 
+
+/*********
+ * create a new customer
+ */
 function customerCreate(addBtn) {
     let editDiv = document.querySelector('.edit-customer')
     

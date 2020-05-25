@@ -42,17 +42,27 @@ footer {
   border-top: 1px solid rgba(255, 203, 154, 0.8);
 }
 
-.customers, .orders {
+.orders {
   position: relative;
   height: 100%;
   width: 100%;
-  background-color: rgba(255, 203, 154, 0.6);
+  background-color: rgba(255, 203, 154, 0.2);
   border-radius: 5px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
-.customers div.edit-customer, .orders div.edit-customer {
-  background-color: rgba(44, 53, 49, 0.6);
+
+.customers {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 203, 154, 0.2);
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.customers div.edit-customer {
+  background-color: #116466;
   position: absolute;
   height: 0%;
   width: 100%;
@@ -60,18 +70,65 @@ footer {
   transition: height 0.5s ease-in-out;
   z-index: 5;
 }
-.customers div.edit-customer::before, .orders div.edit-customer::before {
-  content: "";
+.customers div.edit-customer-show {
+  height: 100%;
+}
+.customers div.edit-customer .customer-form {
+  z-index: 8;
+  padding: 20px;
+  height: 100%;
+  overflow: scroll;
+}
+.customers div.edit-customer .customer-form::-webkit-scrollbar {
+  display: none;
+}
+.customers div.edit-customer .customer-form .form-group {
+  position: relative;
+  height: 70px;
+  font-size: 90%;
+}
+.customers div.edit-customer .customer-form .form-group label {
   position: absolute;
-  top: 0;
+  top: 50%;
+  color: #2C3531;
+  margin-right: 12px;
+  cursor: text;
+  transition: all 0.5s ease-in-out;
+}
+.customers div.edit-customer .customer-form .form-group .form-input {
+  position: absolute;
+  top: 40%;
+  border: transparent;
+  color: #2C3531;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
   width: 100%;
-  height: 100%;
-  background-color: rgba(255, 203, 154, 0.6);
+  padding: 7px 14px;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
 }
-.customers div.edit-customer-show, .orders div.edit-customer-show {
-  height: 100%;
+.customers div.edit-customer .customer-form .form-group .form-input:not(:placeholder-shown) ~ label {
+  top: 0;
+  opacity: 1;
+  color: #D1E8E2;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
-.customers .add-btn, .orders .add-btn {
+.customers div.edit-customer .customer-form .form-group .form-input:focus {
+  outline: transparent;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.6);
+}
+.customers div.edit-customer .customer-form .form-group .form-input:focus ~ label {
+  opacity: 1;
+  top: 0;
+  color: #D1E8E2;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.customers div.edit-customer .customer-form .form-group .form-input::placeholder {
+  opacity: 0;
+}
+.customers .add-btn {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -83,10 +140,10 @@ footer {
   z-index: 6;
   transition: background 0.5s ease-in-out;
 }
-.customers .add-btn:hover, .orders .add-btn:hover {
+.customers .add-btn:hover {
   cursor: pointer;
 }
-.customers .add-btn:before, .orders .add-btn:before {
+.customers .add-btn:before {
   content: "";
   position: absolute;
   background-color: #D1E8E2;
@@ -97,7 +154,7 @@ footer {
   background-color: #fff;
   transition: transform 0.5s ease-in-out;
 }
-.customers .add-btn:after, .orders .add-btn:after {
+.customers .add-btn:after {
   content: "";
   position: absolute;
   background-color: #D1E8E2;
@@ -108,21 +165,21 @@ footer {
   background-color: #fff;
   transition: transform 0.5s ease-in-out;
 }
-.customers .add-btn-close, .orders .add-btn-close {
+.customers .add-btn-close {
   background: rgba(44, 53, 49, 0.3);
 }
-.customers .add-btn-close:before, .orders .add-btn-close:before {
+.customers .add-btn-close:before {
   transform: translate(-50%, 70%) rotate(45deg);
 }
-.customers .add-btn-close:after, .orders .add-btn-close:after {
+.customers .add-btn-close:after {
   transform: translate(-50%, 70%) rotate(135deg);
 }
-.customers .list-group, .orders .list-group {
+.customers .list-group {
   height: 100%;
   overflow: hidden;
   padding: 10px;
 }
-.customers .list-group .list-group-item, .orders .list-group .list-group-item {
+.customers .list-group .list-group-item {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -134,23 +191,23 @@ footer {
   font-size: 95%;
   transition: all 0.5s ease-in-out;
 }
-.customers .list-group .list-group-item:not(:last-child), .orders .list-group .list-group-item:not(:last-child) {
+.customers .list-group .list-group-item:not(:last-child) {
   border-bottom: 1px solid #D1E8E2;
 }
-.customers .list-group .list-group-item:hover, .orders .list-group .list-group-item:hover {
+.customers .list-group .list-group-item:hover {
   cursor: pointer;
   color: rgba(44, 53, 49, 0.5);
   text-shadow: 1px 1px 5px rgba(209, 232, 226, 0.2);
 }
-.customers .list-group .list-group-item-active, .orders .list-group .list-group-item-active {
+.customers .list-group .list-group-item-active {
   color: rgba(44, 53, 49, 0.5);
   text-shadow: 1px 1px 5px rgba(209, 232, 226, 0.2);
   background-color: rgba(255, 203, 154, 0.5);
 }
-.customers .list-group .list-group-item p, .orders .list-group .list-group-item p {
+.customers .list-group .list-group-item p {
   margin: 0;
 }
-.customers .list-group .list-group-item div, .orders .list-group .list-group-item div {
+.customers .list-group .list-group-item div {
   display: block;
   height: 2px;
   width: 15px;
@@ -161,13 +218,13 @@ footer {
   transition: all 0.4s ease-in-out;
   opacity: 0;
 }
-.customers .list-group .list-group-item div.show, .orders .list-group .list-group-item div.show {
+.customers .list-group .list-group-item div.show {
   opacity: 1;
 }
-.customers .list-group .list-group-item div:hover, .orders .list-group .list-group-item div:hover {
+.customers .list-group .list-group-item div:hover {
   transform: scale(1.1);
 }
-.customers .list-group .list-group-item div::before, .customers .list-group .list-group-item div::after, .orders .list-group .list-group-item div::before, .orders .list-group .list-group-item div::after {
+.customers .list-group .list-group-item div::before, .customers .list-group .list-group-item div::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -178,10 +235,10 @@ footer {
   border-radius: 5px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
-.customers .list-group .list-group-item div::before, .orders .list-group .list-group-item div::before {
+.customers .list-group .list-group-item div::before {
   top: -300%;
 }
-.customers .list-group .list-group-item div::after, .orders .list-group .list-group-item div::after {
+.customers .list-group .list-group-item div::after {
   top: 300%;
 }
 

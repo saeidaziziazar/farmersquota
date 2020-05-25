@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  direction: rtl;
+}
+
+body {
+  height: 100%;
+  background: radial-gradient(#116466, rgba(17, 100, 102, 0.6)) no-repeat;
+  font-family: "B Homa", "B Yekan";
+  color: #D1E8E2;
+}
+
+.abs-middle {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button {
+  border: transparent;
+  color: #D1E8E2;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  width: fit-content;
+  padding: 7px 16px;
+  border-radius: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.button:focus {
+  outline: none;
+}
+.button-primary {
+  background-color: #2C3531;
+}
+
+.button-secondary {
+  background-color: #df9656;
+}
+
+/*# sourceMappingURL=component.css.map */

@@ -75,9 +75,13 @@ footer {
 }
 .customers div.edit-customer .customer-form {
   z-index: 8;
-  padding: 20px;
+  padding: 10px 20px 30px 20px;
   height: 100%;
   overflow: scroll;
+}
+.customers div.edit-customer .customer-form h5 {
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 203, 154, 0.8);
 }
 .customers div.edit-customer .customer-form::-webkit-scrollbar {
   display: none;

@@ -1,0 +1,34 @@
+@import 'main.scss';
+
+.button {
+    border: transparent;
+    color: $text-color;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+    box-shadow: 4px 4px 8px rgba(#000, .3);
+    width: fit-content;
+    padding: 7px 16px;
+    border-radius: 20px;
+    text-shadow: 2px 2px 5px rgba(#000, 0.3);
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        
+    }
+
+    &:active {
+        
+    }
+}
+
+.button-primary {
+    background-color: $primary-color-dark;
+}
+
+.button-secondary {
+    background-color: $secondary-color-dark;
+}

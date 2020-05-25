@@ -83,14 +83,47 @@ function customerEdit() {
  * create a new customer
  */
 function customerCreate(addBtn) {
-    let editDiv = document.querySelector('.edit-customer')
+    let editDiv = document.querySelector('.edit-customer');
+    let form = document.querySelector('.customer-form');
     
     if (addBtn.classList.contains('add-btn-close')) {
         editDiv.classList.remove('edit-customer-show');
-        addBtn.classList.remove('add-btn-close')
+        addBtn.classList.remove('add-btn-close');
     } else {
         editDiv.classList.add('edit-customer-show');
-        addBtn.classList.add('add-btn-close')
+        addBtn.classList.add('add-btn-close');
     }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let customer = [];
+        let query_input = {};
+
+        form.querySelectorAll('input').forEach((input, index) => {
+            if (input.type !== 'submit')
+                customer[input.name] = input.value;
+        })
+
+        query_input.first_name = customer['firstname'];
+        query_input.last_name = customer['lastname'];
+        query_input.phone_number = customer['number'];
+        query_input.address = customer['address'];
+        query_input.description = customer['describe'];
+        query_input.creator_id = '1';
+
+        console.log(query_input);
+
+        var query = connection.query('INSERT INTO `customers` SET ?', query_input, function (error, results, fields) {
+            if (error) throw error;
+        });
+
+        console.log(query);
+        
+    })
+    
 }
 
+
+// convert date to store in DB
+// console.log(date.toISOString().slice(0, 19).replace('T', ' '));
+// var CURRENT_TIMESTAMP = { toSqlString: function() { return 'CURRENT_TIMESTAMP()'; } };

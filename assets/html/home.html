@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/component.css">
     <script src="../javascript/connection.js"></script>
     <script src="../javascript/customers.js"></script>
     <title>سیستم مدیریت حواله های چغندرکاران</title>
@@ -22,6 +23,7 @@
                 <div class="customers" style="height: 100%;">
                     <div class="edit-customer">
                         <form action="" class="customer-form">
+                            <h5>مشتری جدید</h5>
                             <div class="form-group">
                                 <input type="text" name="firstname" id="firstname" class="form-input" placeholder="نام مشتری">
                                 <label for="firstname">نام مشتری</label>
@@ -43,6 +45,10 @@
                             <div class="form-group">
                                 <input type="text" name="describe" id="describe" class="form-input" placeholder="توضیحات">
                                 <label for="number">توضیحات</label>
+                            </div>
+
+                            <div class="form-group" style="height: fit-content;">
+                                <input type="submit" name="submit" value="ثبت مشتری" class="button button-secondary">
                             </div>
                         </form>
                     </div>

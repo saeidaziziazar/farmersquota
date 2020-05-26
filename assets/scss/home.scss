@@ -82,10 +82,10 @@ footer {
                 .form-input {
                     position: absolute;
                     top: 40%;
-                    border: transparent;
+                    border: 1px solid transparent;
                     color: $primary-color-dark;
                     font-size: 1rem;
-                    font-weight: 300;
+                    font-weight: 200;
                     line-height: 1.5;
                     box-shadow: 4px 4px 8px rgba(#000, .3);
                     width: 100%;
@@ -112,6 +112,10 @@ footer {
                             color: $text-color;
                             text-shadow: 2px 2px 5px rgba(#000, 0.3);
                         }
+                    }
+
+                    &:invalid {
+                        border: 1px solid $error-color;
                     }
 
                     &::placeholder {
@@ -198,12 +202,12 @@ footer {
 
             &:hover {
                 cursor: pointer;
-                color: rgba($primary-color-dark, .5);
+                color: rgba($primary-color-dark, .9);
                 text-shadow: 1px 1px 5px rgba($text-color, .2);
             }
 
             &-active {
-                color: rgba($primary-color-dark, .5);
+                color: rgba($primary-color-dark, .9);
                 text-shadow: 1px 1px 5px rgba($text-color, .2);
                 background-color: rgba($secondary-color-light, .5);
             }

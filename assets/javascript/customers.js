@@ -1,5 +1,13 @@
+const remote = require('electron').remote
+
 document.addEventListener('DOMContentLoaded', (e) => {
     customerIndex();
+
+    document.querySelectorAll('input[required]').forEach((item, index) => {
+        item.addEventListener('invalid', (e) => {
+            e.preventDefault();
+        })
+    })
 })
 
 
@@ -13,7 +21,12 @@ function customerIndex() {
     connection.query(query, (error, result, fields) => {
         if (!error) {
             let customers = document.querySelector('.customers');
-            // customers.innerHTML = null;
+            if (document.querySelector('.list-group')) {
+                document.querySelector('.list-group').remove();
+            }
+            if (document.querySelector('.add-btn')) {
+                document.querySelector('.add-btn').remove();
+            }
 
             let ul = document.createElement('ul');
             ul.classList.add('list-group');
@@ -49,10 +62,6 @@ function customerIndex() {
                 })
                 ul.appendChild(li);
             })
-
-            // div overlay for create and edit customers and appending to customers div
-            // let customerEdit = document.createElement('div');
-            // customerEdit.classList.add('edit-customer');
 
             // button for new cutomer
             let addBtn = document.createElement('div');
@@ -103,24 +112,31 @@ function customerCreate(addBtn) {
             if (input.type !== 'submit')
                 customer[input.name] = input.value;
         })
-
+        
         query_input.first_name = customer['firstname'];
         query_input.last_name = customer['lastname'];
         query_input.phone_number = customer['number'];
         query_input.address = customer['address'];
         query_input.description = customer['describe'];
-        query_input.creator_id = '1';
 
-        console.log(query_input);
+        // get user id from session
+        remote.session.defaultSession.cookies.get({name : 'id'})
+        .then((cookies) => {
+            query_input.creator_id = parseInt(cookies[0].value);
 
-        var query = connection.query('INSERT INTO `customers` SET ?', query_input, function (error, results, fields) {
+            connection.query('INSERT INTO `customers` SET ?', query_input, function (error, results, fields) {
             if (error) throw error;
+            else {
+                editDiv.classList.remove('edit-customer-show');
+                addBtn.classList.remove('add-btn-close');
+                customerIndex();
+                form.reset();
+            }
         });
-
-        console.log(query);
-        
+        }).catch((error) => {
+            console.log(error)
+        })
     })
-    
 }
 
 

@@ -33,20 +33,20 @@ header {
   text-align: left;
   width: 100%;
   height: 100%;
-  border-bottom: 1px solid rgba(255, 203, 154, 0.8);
+  border-bottom: 1px solid rgba(204, 165, 128, 0.8);
 }
 
 footer {
   width: 100%;
   height: 100%;
-  border-top: 1px solid rgba(255, 203, 154, 0.8);
+  border-top: 1px solid rgba(204, 165, 128, 0.8);
 }
 
 .orders {
   position: relative;
   height: 100%;
   width: 100%;
-  background-color: rgba(255, 203, 154, 0.2);
+  background-color: rgba(204, 165, 128, 0.2);
   border-radius: 5px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -56,7 +56,7 @@ footer {
   position: relative;
   height: 100%;
   width: 100%;
-  background-color: rgba(255, 203, 154, 0.2);
+  background-color: rgba(204, 165, 128, 0.2);
   border-radius: 5px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -81,7 +81,7 @@ footer {
 }
 .customers div.edit-customer .customer-form h5 {
   padding: 15px;
-  border-bottom: 1px solid rgba(255, 203, 154, 0.8);
+  border-bottom: 1px solid rgba(204, 165, 128, 0.8);
 }
 .customers div.edit-customer .customer-form::-webkit-scrollbar {
   display: none;
@@ -102,10 +102,10 @@ footer {
 .customers div.edit-customer .customer-form .form-group .form-input {
   position: absolute;
   top: 40%;
-  border: transparent;
+  border: 1px solid transparent;
   color: #2C3531;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 1.5;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
   width: 100%;
@@ -129,6 +129,9 @@ footer {
   color: #D1E8E2;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
+.customers div.edit-customer .customer-form .form-group .form-input:invalid {
+  border: 1px solid #ff3c3c;
+}
 .customers div.edit-customer .customer-form .form-group .form-input::placeholder {
   opacity: 0;
 }
@@ -139,7 +142,7 @@ footer {
   transform: translate(-50%, 50%);
   width: 50px;
   height: 50px;
-  background-color: rgba(255, 203, 154, 0.6);
+  background-color: rgba(204, 165, 128, 0.6);
   border-radius: 50%;
   z-index: 6;
   transition: background 0.5s ease-in-out;
@@ -200,13 +203,13 @@ footer {
 }
 .customers .list-group .list-group-item:hover {
   cursor: pointer;
-  color: rgba(44, 53, 49, 0.5);
+  color: rgba(44, 53, 49, 0.9);
   text-shadow: 1px 1px 5px rgba(209, 232, 226, 0.2);
 }
 .customers .list-group .list-group-item-active {
-  color: rgba(44, 53, 49, 0.5);
+  color: rgba(44, 53, 49, 0.9);
   text-shadow: 1px 1px 5px rgba(209, 232, 226, 0.2);
-  background-color: rgba(255, 203, 154, 0.5);
+  background-color: rgba(204, 165, 128, 0.5);
 }
 .customers .list-group .list-group-item p {
   margin: 0;

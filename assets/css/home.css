@@ -99,20 +99,16 @@ footer {
 .customers div.edit-customer {
   background-color: #116466;
   position: absolute;
-  height: 0px;
+  height: 100%;
   width: 0px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
   z-index: 3;
   overflow: hidden;
-  border-radius: 50%;
-  transition: height 0.5s ease-in-out, width 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
 }
 .customers div.edit-customer-show {
-  height: 100%;
   width: 100%;
-  border-radius: 0;
 }
 .customers div.edit-customer .customer-form-edit {
   z-index: 8;
@@ -185,8 +181,11 @@ footer {
 }
 .customers .list-group {
   height: 100%;
-  overflow: hidden;
+  overflow: scroll;
   padding: 10px;
+}
+.customers .list-group::-webkit-scrollbar {
+  display: none;
 }
 .customers .list-group .list-group-item {
   display: flex;

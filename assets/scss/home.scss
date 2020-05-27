@@ -82,20 +82,16 @@ footer {
     div.edit-customer {
         background-color: rgba($primary-color-light, 1);
         position: absolute;
-        height: 0px;
+        height: 100%;
         width: 0px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 0;
+        left: 0;
         z-index: 3;
         overflow: hidden;
-        border-radius: 50%;
-        transition: height .5s ease-in-out, width .5s ease-in-out, border-radius .5s ease-in-out;
+        transition: width .5s ease-in-out;
 
         &-show {
-            height: 100%;
             width: 100%;
-            border-radius: 0;
         }
 
         .customer-form-edit {
@@ -182,8 +178,12 @@ footer {
 
     .list-group {
         height: 100%;
-        overflow: hidden;
+        overflow: scroll;
         padding: 10px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         .list-group-item {
             display: flex;

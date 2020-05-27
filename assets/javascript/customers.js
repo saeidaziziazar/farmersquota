@@ -85,6 +85,17 @@ function customerIndex() {
  */
 function customerEdit(id) {
     document.querySelector('.edit-customer').classList.add('edit-customer-show');
+    let fisrtname = document.getElementById('editfirstname');
+    let lastname = document.getElementById('editlastname');
+
+    let query = 'SELECT * FROM customers WHERE `id` = ' + connection.escape(id);
+
+    connection.query(query, (error, results, fields) => {
+        if (!error) {
+            fisrtname.value = results[0].first_name;
+            lastname.value = results[0].last_name;
+        }
+    })
 
     document.querySelector('input[type="button"]').addEventListener('click', (e) => {
         document.querySelector('.edit-customer').classList.remove('edit-customer-show');
@@ -107,6 +118,9 @@ function customerCreate(addBtn) {
         editDiv.classList.add('new-customer-show');
         addBtn.classList.add('add-btn-close');
     }
+
+    console.log('asas');
+    
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();

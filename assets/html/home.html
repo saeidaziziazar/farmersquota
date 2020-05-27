@@ -21,11 +21,11 @@
         <div class="row" style="height: 82%;">
             <div class="col-5" style="padding: 15px;height: 100%;">
                 <div class="customers" style="height: 100%;">
-                    <div class="edit-customer">
+                    <div class="new-customer">
                         <form action="" class="customer-form">
                             <div class="header">
                                 <h5>مشتری جدید</h5>
-                                <img src="../icons/trash.svg" alt="">
+                                <!-- <img src="../icons/trash.svg" alt=""> -->
                             </div>
                             <div class="form-group">
                                 <input type="text" name="firstname" id="firstname" class="form-input" placeholder="نام مشتری" required>
@@ -47,11 +47,46 @@
 
                             <div class="form-group">
                                 <input type="text" name="describe" id="describe" class="form-input" placeholder="توضیحات">
-                                <label for="number">توضیحات</label>
+                                <label for="describe">توضیحات</label>
                             </div>
 
                             <div class="form-group" style="height: fit-content;">
-                                <input type="submit" name="submit" value="ثبت مشتری" class="button button-secondary">
+                                <input type="submit" name="submit" value="ثبت مشتری" class="button button-primary">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="edit-customer">
+                        <form action="" class="customer-form-edit">
+                            <div class="header">
+                                <h5>ویرایش مشتری</h5>
+                                <img src="../icons/trash.svg" alt="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="editfirstname" id="editfirstname" class="form-input" placeholder="نام مشتری" required>
+                                <label for="editfirstname">نام مشتری</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="editlastname" id="editlastname" class="form-input" placeholder="نام خانوادگی" required>
+                                <label for="editlastname">نام خانوادگی</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="editnumber" id="editnumber" class="form-input" placeholder="شماره تماس" required pattern="[0][9][0-9]{9}">
+                                <label for="editnumber">شماره تماس</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="editaddress" id="editaddress" class="form-input" placeholder="آدرس">
+                                <label for="editaddress">آدرس</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="editdescribe" id="editdescribe" class="form-input" placeholder="توضیحات">
+                                <label for="editdescribe">توضیحات</label>
+                            </div>
+
+                            <div class="form-group" style="height: fit-content;display: inline-flex;">
+                                <input type="submit" name="submit" value="ویرایش مشتری" class="button button-primary">
+                                <input type="button" name="cancel" value="انصراف" class="button button-secondary" style="margin-right: 10px;">
                             </div>
                         </form>
                     </div>

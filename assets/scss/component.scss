@@ -11,9 +11,14 @@
     padding: 7px 16px;
     border-radius: 20px;
     text-shadow: 2px 2px 5px rgba(#000, 0.3);
+    transition: box-shadow .3s ease-in-out;
 
     &:focus {
         outline: none;
+    }
+
+    &:hover {
+        box-shadow: 6px 6px 8px rgba(#000, .5);
     }
 }
 
@@ -23,4 +28,63 @@
 
 .button-secondary {
     background-color: $secondary-color-dark;
+}
+
+.form-group {
+    position: relative;
+    height: 70px;
+    font-size: 90%;
+
+    label {
+        position: absolute;
+        top: 50%;
+        color: $primary-color-dark;
+        margin-right: 12px;
+        cursor: text;
+        transition: all .5s ease-in-out;
+    }
+
+    .form-input {
+        position: absolute;
+        top: 40%;
+        border: 1px solid transparent;
+        color: $primary-color-dark;
+        font-size: 1rem;
+        font-weight: 200;
+        line-height: 1.5;
+        box-shadow: 4px 4px 8px rgba(#000, .3);
+        width: 100%;
+        padding: 7px 14px;
+        border-radius: 20px;
+        transition: all .3s ease-in-out;
+    
+        &:not(:placeholder-shown) {
+            & ~ label {
+                top: 0;
+                opacity: 1;
+                color: $text-color;
+                text-shadow: 2px 2px 5px rgba(#000, 0.3);
+            }
+        }
+    
+        &:focus {
+            outline: transparent;
+            box-shadow: 6px 6px 8px rgba(#000, .5);
+    
+            & ~ label {
+                opacity: 1;
+                top: 0;
+                color: $text-color;
+                text-shadow: 2px 2px 5px rgba(#000, 0.3);
+            }
+        }
+    
+        &:invalid {
+            border: 1px solid $error-color;
+        }
+    
+        &::placeholder {
+            opacity: 0;   
+        }
+    }
 }

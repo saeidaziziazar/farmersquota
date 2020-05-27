@@ -36,9 +36,13 @@ body {
   padding: 7px 16px;
   border-radius: 20px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
 }
 .button:focus {
   outline: none;
+}
+.button:hover {
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
 }
 
 .button-primary {
@@ -47,6 +51,56 @@ body {
 
 .button-secondary {
   background-color: #df9656;
+}
+
+.form-group {
+  position: relative;
+  height: 70px;
+  font-size: 90%;
+}
+.form-group label {
+  position: absolute;
+  top: 50%;
+  color: #2C3531;
+  margin-right: 12px;
+  cursor: text;
+  transition: all 0.5s ease-in-out;
+}
+.form-group .form-input {
+  position: absolute;
+  top: 40%;
+  border: 1px solid transparent;
+  color: #2C3531;
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1.5;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  padding: 7px 14px;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.form-group .form-input:not(:placeholder-shown) ~ label {
+  top: 0;
+  opacity: 1;
+  color: #D1E8E2;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.form-group .form-input:focus {
+  outline: transparent;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
+}
+.form-group .form-input:focus ~ label {
+  opacity: 1;
+  top: 0;
+  color: #D1E8E2;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.form-group .form-input:invalid {
+  border: 1px solid #ff3c3c;
+}
+.form-group .form-input::placeholder {
+  opacity: 0;
 }
 
 /*# sourceMappingURL=component.css.map */

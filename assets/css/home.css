@@ -61,7 +61,7 @@ footer {
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
-.customers div.edit-customer {
+.customers div.new-customer {
   background-color: #116466;
   position: absolute;
   height: 0%;
@@ -70,78 +70,72 @@ footer {
   transition: height 0.5s ease-in-out;
   z-index: 5;
 }
-.customers div.edit-customer-show {
+.customers div.new-customer-show {
   height: 100%;
 }
-.customers div.edit-customer .customer-form {
+.customers div.new-customer .customer-form {
   z-index: 8;
   padding: 10px 20px 30px 20px;
   height: 100%;
   overflow: scroll;
 }
-.customers div.edit-customer .customer-form .header {
+.customers div.new-customer .customer-form .header {
   display: flex;
+  margin-bottom: 15px;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(204, 165, 128, 0.8);
 }
-.customers div.edit-customer .customer-form .header h5 {
+.customers div.new-customer .customer-form .header h5 {
   padding: 15px;
+  margin: 0;
 }
-.customers div.edit-customer .customer-form .header img {
+.customers div.new-customer .customer-form .header img {
   cursor: pointer;
 }
-.customers div.edit-customer .customer-form::-webkit-scrollbar {
+.customers div.new-customer .customer-form::-webkit-scrollbar {
   display: none;
 }
-.customers div.edit-customer .customer-form .form-group {
-  position: relative;
-  height: 70px;
-  font-size: 90%;
-}
-.customers div.edit-customer .customer-form .form-group label {
+.customers div.edit-customer {
+  background-color: #116466;
   position: absolute;
+  height: 0px;
+  width: 0px;
   top: 50%;
-  color: #2C3531;
-  margin-right: 12px;
-  cursor: text;
-  transition: all 0.5s ease-in-out;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  overflow: hidden;
+  border-radius: 50%;
+  transition: height 0.5s ease-in-out, width 0.5s ease-in-out, border-radius 0.5s ease-in-out;
 }
-.customers div.edit-customer .customer-form .form-group .form-input {
-  position: absolute;
-  top: 40%;
-  border: 1px solid transparent;
-  color: #2C3531;
-  font-size: 1rem;
-  font-weight: 200;
-  line-height: 1.5;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+.customers div.edit-customer-show {
+  height: 100%;
   width: 100%;
-  padding: 7px 14px;
-  border-radius: 20px;
-  transition: all 0.3s ease-in-out;
+  border-radius: 0;
 }
-.customers div.edit-customer .customer-form .form-group .form-input:not(:placeholder-shown) ~ label {
-  top: 0;
-  opacity: 1;
-  color: #D1E8E2;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+.customers div.edit-customer .customer-form-edit {
+  z-index: 8;
+  padding: 10px 20px 30px 20px;
+  height: 100%;
+  overflow: scroll;
 }
-.customers div.edit-customer .customer-form .form-group .form-input:focus {
-  outline: transparent;
-  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.6);
+.customers div.edit-customer .customer-form-edit .header {
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(204, 165, 128, 0.8);
 }
-.customers div.edit-customer .customer-form .form-group .form-input:focus ~ label {
-  opacity: 1;
-  top: 0;
-  color: #D1E8E2;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+.customers div.edit-customer .customer-form-edit .header h5 {
+  padding: 15px;
+  margin: 0;
 }
-.customers div.edit-customer .customer-form .form-group .form-input:invalid {
-  border: 1px solid #ff3c3c;
+.customers div.edit-customer .customer-form-edit .header img {
+  cursor: pointer;
 }
-.customers div.edit-customer .customer-form .form-group .form-input::placeholder {
-  opacity: 0;
+.customers div.edit-customer .customer-form-edit::-webkit-scrollbar {
+  display: none;
 }
 .customers .add-btn {
   position: absolute;
@@ -223,7 +217,7 @@ footer {
   margin: 0;
 }
 .customers .list-group .list-group-item div {
-  display: block;
+  visibility: hidden;
   height: 2px;
   width: 15px;
   background-color: #fff;
@@ -234,6 +228,7 @@ footer {
   opacity: 0;
 }
 .customers .list-group .list-group-item div.show {
+  visibility: visible;
   opacity: 1;
 }
 .customers .list-group .list-group-item div:hover {

@@ -85,10 +85,10 @@ function customerIndex() {
  */
 function customerEdit(id) {
     document.querySelector('.edit-customer').classList.add('edit-customer-show');
-    document.querySelector('.add-btn').classList.add('add-btn-close');
 
-    console.log(id);
-    
+    document.querySelector('input[type="button"]').addEventListener('click', (e) => {
+        document.querySelector('.edit-customer').classList.remove('edit-customer-show');
+    })
 }
 
 
@@ -96,14 +96,15 @@ function customerEdit(id) {
  * create a new customer
  */
 function customerCreate(addBtn) {
-    let editDiv = document.querySelector('.edit-customer');
+    let editDiv = document.querySelector('.new-customer');
     let form = document.querySelector('.customer-form');
     
     if (addBtn.classList.contains('add-btn-close')) {
-        editDiv.classList.remove('edit-customer-show');
+        editDiv.classList.remove('new-customer-show');
         addBtn.classList.remove('add-btn-close');
+        form.reset();
     } else {
-        editDiv.classList.add('edit-customer-show');
+        editDiv.classList.add('new-customer-show');
         addBtn.classList.add('add-btn-close');
     }
 
@@ -131,7 +132,7 @@ function customerCreate(addBtn) {
             connection.query('INSERT INTO `customers` SET ?', query_input, function (error, results, fields) {
             if (error) throw error;
             else {
-                editDiv.classList.remove('edit-customer-show');
+                editDiv.classList.remove('new-customer-show');
                 addBtn.classList.remove('add-btn-close');
                 customerIndex();
                 form.reset();

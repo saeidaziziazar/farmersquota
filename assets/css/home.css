@@ -79,9 +79,17 @@ footer {
   height: 100%;
   overflow: scroll;
 }
-.customers div.edit-customer .customer-form h5 {
-  padding: 15px;
+.customers div.edit-customer .customer-form .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid rgba(204, 165, 128, 0.8);
+}
+.customers div.edit-customer .customer-form .header h5 {
+  padding: 15px;
+}
+.customers div.edit-customer .customer-form .header img {
+  cursor: pointer;
 }
 .customers div.edit-customer .customer-form::-webkit-scrollbar {
   display: none;

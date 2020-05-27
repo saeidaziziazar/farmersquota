@@ -56,9 +56,19 @@ footer {
             height: 100%;
             overflow: scroll;
 
-            h5 {
-                padding: 15px;
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 border-bottom: 1px solid rgba($secondary-color-light, .8);
+
+                h5 {
+                    padding: 15px;
+                }
+
+                img {
+                    cursor: pointer;
+                }
             }
 
             &::-webkit-scrollbar {

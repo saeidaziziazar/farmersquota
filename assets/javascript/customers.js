@@ -43,7 +43,7 @@ function customerIndex() {
                 // add event listener to edit btn
                 div.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    this.customerEdit();
+                    this.customerEdit(value.id);
                 })
 
                 li.appendChild(div);
@@ -83,8 +83,12 @@ function customerIndex() {
 /*******
  * edit a specific customer
  */
-function customerEdit() {
+function customerEdit(id) {
     document.querySelector('.edit-customer').classList.add('edit-customer-show');
+    document.querySelector('.add-btn').classList.add('add-btn-close');
+
+    console.log(id);
+    
 }
 
 

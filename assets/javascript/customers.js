@@ -1,4 +1,5 @@
-const remote = require('electron').remote
+const remote = require('electron').remote;
+var customer_id;
 
 document.addEventListener('DOMContentLoaded', (e) => {
     customerIndex();
@@ -8,6 +9,29 @@ document.addEventListener('DOMContentLoaded', (e) => {
             e.preventDefault();
         })
     })
+    
+    document.querySelector('.add-btn').addEventListener('click', (e) => {
+        let editDiv = document.querySelector('.new-customer');
+        
+        
+        if (e.target.classList.contains('add-btn-close')) {
+            editDiv.classList.remove('new-customer-show');
+            e.target.classList.remove('add-btn-close');
+        } else {
+            editDiv.classList.add('new-customer-show');
+            e.target.classList.add('add-btn-close');
+        }
+    })
+
+    document.querySelector('.customer-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        customerCreate(e.target);
+    });
+
+    document.querySelector('.customer-form-edit').addEventListener('submit', (e) => {
+        e.preventDefault();
+        customerUpdate(e.target);
+    })
 })
 
 
@@ -16,17 +40,18 @@ document.addEventListener('DOMContentLoaded', (e) => {
  */
 function customerIndex() {
     let query = 'SELECT * FROM customers';
+    if (document.querySelector('.list-group')) {
+        document.querySelector('.list-group').remove();
+    }
+
+    document.querySelector('.edit-customer').classList.remove('edit-customer-show');
+    document.querySelector('.new-customer').classList.remove('new-customer-show');
+    document.querySelector('.add-btn').classList.remove('add-btn-close');
 
     // connecting to database
     connection.query(query, (error, result, fields) => {
         if (!error) {
             let customers = document.querySelector('.customers');
-            if (document.querySelector('.list-group')) {
-                document.querySelector('.list-group').remove();
-            }
-            if (document.querySelector('.add-btn')) {
-                document.querySelector('.add-btn').remove();
-            }
 
             let ul = document.createElement('ul');
             ul.classList.add('list-group');
@@ -43,7 +68,12 @@ function customerIndex() {
                 // add event listener to edit btn
                 div.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    this.customerEdit(value.id);
+                    document.querySelector('.edit-customer').classList.add('edit-customer-show');
+                    document.querySelector('input[type="button"]').addEventListener('click', (e) => {
+                        document.querySelector('.edit-customer').classList.remove('edit-customer-show');
+                    })
+
+                    customerEdit(value.id);
                 })
 
                 li.appendChild(div);
@@ -63,30 +93,60 @@ function customerIndex() {
                 ul.appendChild(li);
             })
 
-            // button for new cutomer
-            let addBtn = document.createElement('div');
-            addBtn.classList.add('add-btn');
-            addBtn.addEventListener('click', (e) => {
-                this.customerCreate(addBtn);
-            });
-
             // appending ul to div.customers
             customers.appendChild(ul); 
-            // customers.appendChild(customerEdit);
-            customers.appendChild(addBtn);
         } else {
             console.error(console.error);
         }
     });
 }
 
+/*********
+ * create a new customer
+ */
+function customerCreate(form) {
+    let customer = [];
+    let query_input = {};
+
+    form.querySelectorAll('input').forEach((input, index) => {
+        if (input.type !== 'submit')
+            customer[input.name] = input.value;
+    })
+    
+    query_input.first_name = customer['firstname'];
+    query_input.last_name = customer['lastname'];
+    query_input.phone_number = customer['number'];
+    query_input.address = customer['address'];
+    query_input.description = customer['describe'];
+
+    // get user id from session
+    remote.session.defaultSession.cookies.get({name : 'id'})
+    .then((cookies) => {
+        query_input.creator_id = parseInt(cookies[0].value);
+
+        connection.query('INSERT INTO `customers` SET ?', query_input, function (error, results, fields) {
+        if (error) throw error;
+        else {
+            customerIndex();
+            form.reset();
+        }
+    });
+    }).catch((error) => {
+        console.log(error)
+    })
+}
+
 /*******
  * edit a specific customer
  */
 function customerEdit(id) {
-    document.querySelector('.edit-customer').classList.add('edit-customer-show');
+    customer_id = id;
+
     let fisrtname = document.getElementById('editfirstname');
     let lastname = document.getElementById('editlastname');
+    let number = document.getElementById('editnumber');
+    let address = document.getElementById('editaddress');
+    let describe = document.getElementById('editdescribe');
 
     let query = 'SELECT * FROM customers WHERE `id` = ' + connection.escape(id);
 
@@ -94,68 +154,41 @@ function customerEdit(id) {
         if (!error) {
             fisrtname.value = results[0].first_name;
             lastname.value = results[0].last_name;
+            number.value = results[0].phone_number;
+            address.value = results[0].address;
+            describe.value = results[0].description;
         }
-    })
-
-    document.querySelector('input[type="button"]').addEventListener('click', (e) => {
-        document.querySelector('.edit-customer').classList.remove('edit-customer-show');
     })
 }
 
 
-/*********
- * create a new customer
+/******
+ * update customer on DB
  */
-function customerCreate(addBtn) {
-    let editDiv = document.querySelector('.new-customer');
-    let form = document.querySelector('.customer-form');
-    
-    if (addBtn.classList.contains('add-btn-close')) {
-        editDiv.classList.remove('new-customer-show');
-        addBtn.classList.remove('add-btn-close');
-        form.reset();
-    } else {
-        editDiv.classList.add('new-customer-show');
-        addBtn.classList.add('add-btn-close');
-    }
 
-    console.log('asas');
-    
+function customerUpdate(form, id) {
+    let customer = [];
+    let query_input = {};
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        let customer = [];
-        let query_input = {};
-
-        form.querySelectorAll('input').forEach((input, index) => {
-            if (input.type !== 'submit')
-                customer[input.name] = input.value;
-        })
-        
-        query_input.first_name = customer['firstname'];
-        query_input.last_name = customer['lastname'];
-        query_input.phone_number = customer['number'];
-        query_input.address = customer['address'];
-        query_input.description = customer['describe'];
-
-        // get user id from session
-        remote.session.defaultSession.cookies.get({name : 'id'})
-        .then((cookies) => {
-            query_input.creator_id = parseInt(cookies[0].value);
-
-            connection.query('INSERT INTO `customers` SET ?', query_input, function (error, results, fields) {
-            if (error) throw error;
-            else {
-                editDiv.classList.remove('new-customer-show');
-                addBtn.classList.remove('add-btn-close');
-                customerIndex();
-                form.reset();
-            }
-        });
-        }).catch((error) => {
-            console.log(error)
-        })
+    form.querySelectorAll('input').forEach((input, index) => {
+        if (input.type !== 'submit')
+            customer[input.name] = input.value;
     })
+    
+    query_input.first_name = customer['editfirstname'];
+    query_input.last_name = customer['editlastname'];
+    query_input.phone_number = customer['editnumber'];
+    query_input.address = customer['editaddress'];
+    query_input.description = customer['editdescribe'];
+
+    // console.log(connection.format('UPDATE users SET ? WHERE id = ?', [query_input, customer_id]));
+    connection.query('UPDATE customers SET ? WHERE id = ?', [query_input, customer_id], function (error, results, fields) {
+        if (error) throw error;
+        else {
+            customerIndex();
+            form.reset();
+        }
+    });
 }
 
 

@@ -2,6 +2,17 @@
 
 .container {
     height: 100%;
+    position: relative;
+
+
+    .delete-customer-confirmation {
+        position: absolute;
+        height: 30%;
+        width: 50%;
+        background-color: #fff;
+        z-index: 100;
+        visibility: hidden;
+    }
 }
 
 
@@ -70,6 +81,7 @@ footer {
 
                 img {
                     cursor: pointer;
+                    padding: 15px;
                 }
             }
 

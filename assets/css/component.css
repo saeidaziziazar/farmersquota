@@ -103,4 +103,49 @@ body {
   opacity: 0;
 }
 
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.popup-show {
+  visibility: visible;
+  opacity: 1;
+}
+.popup-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40%;
+  width: 50%;
+  background-color: rgba(17, 100, 102, 0.9);
+  border-radius: 5px;
+  padding: 20px;
+}
+.popup-box-title {
+  height: 30%;
+  width: 100%;
+  padding: 15px;
+  border-bottom: 1px solid #cca580;
+}
+.popup-box-content {
+  height: 40%;
+  width: 100%;
+  padding: 15px;
+}
+.popup-box-footer {
+  height: 30%;
+  width: 100%;
+  border-top: 1px solid #cca580;
+  padding: 15px;
+}
+
 /*# sourceMappingURL=component.css.map */

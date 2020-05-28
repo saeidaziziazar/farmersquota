@@ -32,6 +32,14 @@ document.addEventListener('DOMContentLoaded', (e) => {
         e.preventDefault();
         customerUpdate(e.target);
     })
+
+    document.querySelector('.customer-form-edit .header img').addEventListener('click', (e) => {
+        document.querySelector('#deleteconfirm').classList.add('popup-show');
+    })
+
+    document.querySelector('#cancel-delete-customer-popup').addEventListener('click', (e) => {
+        document.querySelector('#deleteconfirm').classList.remove('popup-show');
+    })
 })
 
 
@@ -64,6 +72,7 @@ function customerIndex() {
                 li.innerHTML = value.first_name + ' ' + value.last_name + ' | ' + value.phone_number;
 
                 let div = document.createElement('div');
+                div.appendChild(document.createElement('div'));
 
                 // add event listener to edit btn
                 div.addEventListener('click', (e) => {
@@ -181,10 +190,26 @@ function customerUpdate(form, id) {
     query_input.address = customer['editaddress'];
     query_input.description = customer['editdescribe'];
 
-    // console.log(connection.format('UPDATE users SET ? WHERE id = ?', [query_input, customer_id]));
+    
     connection.query('UPDATE customers SET ? WHERE id = ?', [query_input, customer_id], function (error, results, fields) {
         if (error) throw error;
         else {
+            customerIndex();
+            form.reset();
+        }
+    });
+}
+
+
+/********
+ * delete customer from DB
+ */
+
+function customerDelete(id) {
+    connection.query('DELETE FROM customers WHERE id = ?', customer_id, function (error, results, fields) {
+        if (error) throw error;
+        else {
+            document.querySelector('#deleteconfirm').classList.remove('popup-show');
             customerIndex();
             form.reset();
         }

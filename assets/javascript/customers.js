@@ -64,7 +64,7 @@ function customerIndex() {
             let ul = document.createElement('ul');
             ul.classList.add('list-group');
             
-            // appnding each item to ul
+            // appending each item to ul
             result.forEach((value, index) => {
                 let li = document.createElement('li');
                 li.classList.add('list-group-item');

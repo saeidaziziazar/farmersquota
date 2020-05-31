@@ -43,16 +43,6 @@ footer {
   border-top: 1px solid rgba(204, 165, 128, 0.8);
 }
 
-.orders {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(204, 165, 128, 0.2);
-  border-radius: 5px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-}
-
 .customers {
   position: relative;
   height: 100%;
@@ -135,52 +125,6 @@ footer {
 .customers div.edit-customer .customer-form-edit::-webkit-scrollbar {
   display: none;
 }
-.customers .add-btn {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  width: 50px;
-  height: 50px;
-  background-color: rgba(204, 165, 128, 0.6);
-  border-radius: 50%;
-  z-index: 6;
-  transition: background 0.5s ease-in-out;
-}
-.customers .add-btn:hover {
-  cursor: pointer;
-}
-.customers .add-btn:before {
-  content: "";
-  position: absolute;
-  background-color: #D1E8E2;
-  left: 50%;
-  transform: translate(-50%, 70%);
-  width: 2px;
-  height: 12px;
-  background-color: #fff;
-  transition: transform 0.5s ease-in-out;
-}
-.customers .add-btn:after {
-  content: "";
-  position: absolute;
-  background-color: #D1E8E2;
-  left: 50%;
-  transform: translate(-50%, 70%) rotate(90deg);
-  width: 2px;
-  height: 12px;
-  background-color: #fff;
-  transition: transform 0.5s ease-in-out;
-}
-.customers .add-btn-close {
-  background: rgba(44, 53, 49, 0.3);
-}
-.customers .add-btn-close:before {
-  transform: translate(-50%, 70%) rotate(45deg);
-}
-.customers .add-btn-close:after {
-  transform: translate(-50%, 70%) rotate(135deg);
-}
 .customers .list-group {
   height: 100%;
   overflow: scroll;
@@ -256,6 +200,78 @@ footer {
 }
 .customers .list-group .list-group-item div div::after {
   top: 300%;
+}
+
+.orders {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(204, 165, 128, 0.2);
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.orders div.new-order {
+  background-color: #116466;
+  position: absolute;
+  height: 0%;
+  width: 100%;
+  bottom: 0;
+  transition: height 0.5s ease-in-out;
+  z-index: 5;
+}
+.orders div.new-order-show {
+  height: 100%;
+}
+.orders div.new-order .add-orders {
+  padding: 15px;
+}
+
+.add-btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(204, 165, 128, 0.6);
+  border-radius: 50%;
+  z-index: 6;
+  transition: background 0.5s ease-in-out;
+}
+.add-btn:hover {
+  cursor: pointer;
+}
+.add-btn:before {
+  content: "";
+  position: absolute;
+  background-color: #D1E8E2;
+  left: 50%;
+  transform: translate(-50%, 70%);
+  width: 2px;
+  height: 12px;
+  background-color: #fff;
+  transition: transform 0.5s ease-in-out;
+}
+.add-btn:after {
+  content: "";
+  position: absolute;
+  background-color: #D1E8E2;
+  left: 50%;
+  transform: translate(-50%, 70%) rotate(90deg);
+  width: 2px;
+  height: 12px;
+  background-color: #fff;
+  transition: transform 0.5s ease-in-out;
+}
+.add-btn-close {
+  background: rgba(44, 53, 49, 0.3);
+}
+.add-btn-close:before {
+  transform: translate(-50%, 70%) rotate(45deg);
+}
+.add-btn-close:after {
+  transform: translate(-50%, 70%) rotate(135deg);
 }
 
 .username {

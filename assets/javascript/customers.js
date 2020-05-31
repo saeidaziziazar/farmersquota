@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
         })
     })
     
-    document.querySelector('.add-btn').addEventListener('click', (e) => {
+    document.querySelector('.customers .add-btn').addEventListener('click', (e) => {
         let editDiv = document.querySelector('.new-customer');
         
         
@@ -84,6 +84,12 @@ function customerIndex() {
 
                     customerEdit(value.id);
                 })
+
+                // create a hidden input to keep id of customer
+                let hidden = document.createElement('input');
+                hidden.setAttribute('type', 'hidden');
+                hidden.setAttribute('value', value.id);
+                li.appendChild(hidden);
 
                 li.appendChild(div);
 
@@ -190,7 +196,6 @@ function customerUpdate(form, id) {
     query_input.address = customer['editaddress'];
     query_input.description = customer['editdescribe'];
 
-    
     connection.query('UPDATE customers SET ? WHERE id = ?', [query_input, customer_id], function (error, results, fields) {
         if (error) throw error;
         else {

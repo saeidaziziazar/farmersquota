@@ -19,16 +19,6 @@ footer {
     border-top: 1px solid rgba($secondary-color-light, .8);
 }
 
-.orders {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    background-color: rgba($secondary-color-light, .2);
-    border-radius: 5px;
-    box-shadow: 4px 4px 8px rgba(#000, .3);
-    overflow: hidden;
-}
-
 .customers {
     position: relative;
     height: 100%;
@@ -125,59 +115,6 @@ footer {
         }
     }
 
-    .add-btn {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, 50%);
-        width: 50px;
-        height: 50px;
-        background-color: rgba($secondary-color-light, .6);
-        border-radius: 50%;
-        z-index: 6;
-        transition: background .5s ease-in-out;
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        &:before {
-            content: '';
-            position: absolute;
-            background-color: $text-color;
-            left: 50%;
-            transform: translate(-50%, 70%);
-            width: 2px;
-            height: 12px;
-            background-color: #fff;
-            transition: transform .5s ease-in-out;
-        }
-
-        &:after {
-            content: '';
-            position: absolute;
-            background-color: $text-color;
-            left: 50%;
-            transform: translate(-50%, 70%) rotate(90deg);
-            width: 2px;
-            height: 12px;
-            background-color: #fff;
-            transition: transform .5s ease-in-out;
-        }
-
-        &-close {
-            background: rgba($primary-color-dark, .3);;
-
-            &:before {
-                transform: translate(-50%, 70%) rotate(45deg);
-            }
-
-            &:after {
-                transform: translate(-50%, 70%) rotate(135deg);
-            }
-        }
-    }
-
     .list-group {
         height: 100%;
         overflow: scroll;
@@ -264,6 +201,87 @@ footer {
                     }
                 }
             }
+        }
+    }
+}
+
+.orders {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($secondary-color-light, .2);
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px rgba(#000, .3);
+    overflow: hidden;
+
+    div.new-order {
+        background-color: rgba($primary-color-light, 1);
+        position: absolute;
+        height: 0%;
+        width: 100%;
+        bottom: 0;
+        transition: height .5s ease-in-out;
+        z-index: 5;
+
+        &-show {
+            height: 100%;
+        }
+
+        .add-orders {
+            padding: 15px;
+        }
+    }
+}
+
+.add-btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba($secondary-color-light, .6);
+    border-radius: 50%;
+    z-index: 6;
+    transition: background .5s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        background-color: $text-color;
+        left: 50%;
+        transform: translate(-50%, 70%);
+        width: 2px;
+        height: 12px;
+        background-color: #fff;
+        transition: transform .5s ease-in-out;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        background-color: $text-color;
+        left: 50%;
+        transform: translate(-50%, 70%) rotate(90deg);
+        width: 2px;
+        height: 12px;
+        background-color: #fff;
+        transition: transform .5s ease-in-out;
+    }
+
+    &-close {
+        background: rgba($primary-color-dark, .3);;
+
+        &:before {
+            transform: translate(-50%, 70%) rotate(45deg);
+        }
+
+        &:after {
+            transform: translate(-50%, 70%) rotate(135deg);
         }
     }
 }

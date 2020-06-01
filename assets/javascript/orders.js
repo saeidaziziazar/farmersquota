@@ -1,4 +1,5 @@
 import * as orderController from '../../app/controllers/orderController.js';
+require('../../app/models/quota');
 
 document.addEventListener('DOMContentLoaded', (e) => {
 
@@ -29,6 +30,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
     })
 
     document.querySelector('#add-order-input').addEventListener('keyup', (e) => {
-        if (e.keyCode === 13 && e.key === 'Enter') orderController.getQuota();
+        if (e.keyCode === 13 && e.key === 'Enter') Quota.find(e.target.value);
     })
 })

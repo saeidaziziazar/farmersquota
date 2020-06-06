@@ -229,6 +229,75 @@ footer {
 
         .add-orders {
             padding: 15px;
+            height: 30%;
+        }
+
+        .added-orders {
+            height: 70%;
+            width: 100%;
+            padding: 0 5px 0 5px;
+            
+            &-list {
+                height: 85%;
+                width: 100%;
+                padding: 0;
+
+                ul {
+                    margin: 0;
+    
+                    li {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        background-color: transparent;
+                        text-shadow: 1px 1px 5px rgba(#000, 0.3);
+                        border: none;
+                        padding: 12px 15px;
+                        font-size: 95%;
+                        transition: all .5s ease-in-out;
+                        
+                        &:not(:last-child) {
+                            border-bottom: 1px solid $text-color;
+                        }
+            
+                        &:hover {
+                            cursor: pointer;
+                            color: rgba($primary-color-dark, .9);
+                            text-shadow: 1px 1px 5px rgba($text-color, .2);
+                        }
+            
+                        &-active {
+                            color: rgba($primary-color-dark, .9);
+                            text-shadow: 1px 1px 5px rgba($text-color, .2);
+                            background-color: rgba($secondary-color-light, .5);
+                        }
+            
+                        p {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+
+            &-sum {
+                display: inline-flex;
+                height: 15%;
+                width: 100%;
+                padding: 0 15px;
+
+                #sum {
+                    width: 50%;
+                    height: 100%;
+                    padding: 5px;
+                }
+
+                #actionbtns {
+                    width: 50%;
+                    height: 100%;
+                    padding: 5px;
+                }
+            }
         }
     }
 }

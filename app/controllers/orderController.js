@@ -1,5 +1,5 @@
 import * as order from '../models/order.js';
-// require('../models/quota.js');
+import Quota from '../models/quota.js';
 
 export function getOrdersOfCustomer() {
     

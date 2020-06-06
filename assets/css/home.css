@@ -225,6 +225,64 @@ footer {
 }
 .orders div.new-order .add-orders {
   padding: 15px;
+  height: 30%;
+}
+.orders div.new-order .added-orders {
+  height: 70%;
+  width: 100%;
+  padding: 0 5px 0 5px;
+}
+.orders div.new-order .added-orders-list {
+  height: 85%;
+  width: 100%;
+  padding: 0;
+}
+.orders div.new-order .added-orders-list ul {
+  margin: 0;
+}
+.orders div.new-order .added-orders-list ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  border: none;
+  padding: 12px 15px;
+  font-size: 95%;
+  transition: all 0.5s ease-in-out;
+}
+.orders div.new-order .added-orders-list ul li:not(:last-child) {
+  border-bottom: 1px solid #D1E8E2;
+}
+.orders div.new-order .added-orders-list ul li:hover {
+  cursor: pointer;
+  color: rgba(44, 53, 49, 0.9);
+  text-shadow: 1px 1px 5px rgba(209, 232, 226, 0.2);
+}
+.orders div.new-order .added-orders-list ul li-active {
+  color: rgba(44, 53, 49, 0.9);
+  text-shadow: 1px 1px 5px rgba(209, 232, 226, 0.2);
+  background-color: rgba(204, 165, 128, 0.5);
+}
+.orders div.new-order .added-orders-list ul li p {
+  margin: 0;
+}
+.orders div.new-order .added-orders-sum {
+  display: inline-flex;
+  height: 15%;
+  width: 100%;
+  padding: 0 15px;
+}
+.orders div.new-order .added-orders-sum #sum {
+  width: 50%;
+  height: 100%;
+  padding: 5px;
+}
+.orders div.new-order .added-orders-sum #actionbtns {
+  width: 50%;
+  height: 100%;
+  padding: 5px;
 }
 
 .add-btn {

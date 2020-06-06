@@ -81,8 +81,7 @@ function customerIndex() {
                     document.querySelector('input[type="button"]').addEventListener('click', (e) => {
                         document.querySelector('.edit-customer').classList.remove('edit-customer-show');
                     })
-
-                    customerEdit(value.id);
+                    customerEdit();
                 })
 
                 // create a hidden input to keep id of customer
@@ -95,6 +94,7 @@ function customerIndex() {
 
                 // add event listener to list items
                 li.addEventListener('click', (e) => {
+                    customer_id = value.id;
                     ul.childNodes.forEach((item, index) => {
                         item.classList.remove('list-group-item-active');
                         item.lastChild.classList.remove('show');
@@ -154,16 +154,16 @@ function customerCreate(form) {
 /*******
  * edit a specific customer
  */
-function customerEdit(id) {
-    customer_id = id;
-
+function customerEdit() {
+    console.log(customer_id);
+    
     let fisrtname = document.getElementById('editfirstname');
     let lastname = document.getElementById('editlastname');
     let number = document.getElementById('editnumber');
     let address = document.getElementById('editaddress');
     let describe = document.getElementById('editdescribe');
 
-    let query = 'SELECT * FROM customers WHERE `id` = ' + connection.escape(id);
+    let query = 'SELECT * FROM customers WHERE `id` = ' + connection.escape(customer_id);
 
     connection.query(query, (error, results, fields) => {
         if (!error) {

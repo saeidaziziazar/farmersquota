@@ -1,11 +1,7 @@
-class Quota {
-    static find(id) {
-        let query = "SELECT * FROM quotas WHERE contract_number = " + id;
+import Model from '../models/model.js';
 
-        connection.query(query, (error, result, fields) => {
-            if (!error) {
-                return result;
-            }
-        })
+export default class Quota extends Model {
+    constructor() {
+        super();
     }
 }

@@ -1,5 +1,4 @@
 import * as orderController from '../../app/controllers/orderController.js';
-require('../../app/models/quota');
 
 document.addEventListener('DOMContentLoaded', (e) => {
 
@@ -29,7 +28,61 @@ document.addEventListener('DOMContentLoaded', (e) => {
         e.preventDefault();
     })
 
+    // add new order to list
     document.querySelector('#add-order-input').addEventListener('keyup', (e) => {
-        if (e.keyCode === 13 && e.key === 'Enter') Quota.find(e.target.value);
+        if (e.keyCode === 13 && e.key === 'Enter') {
+            let orderlist = document.querySelector('.added-orders-list');
+            let quota = orderController.getQuota(e.target.value);
+            
+            let exict = false;
+
+            orderlist.querySelectorAll('ul li div#number').forEach((item, index) => {
+                if (e.target.value === item.innerHTML) exict = true;
+            })
+
+            if (exict === false) {
+                setTimeout(() => {
+                    if (quota.id != null) {
+                        if (quota.order_id == null) {
+                            // create element for list item
+                            let ul = orderlist.querySelector('ul');
+                            let li = document.createElement('li');
+                            let idDiv = document.createElement('div');
+                            idDiv.setAttribute('id', 'number');
+                            idDiv.innerHTML =  quota.contract_number;
+                            let amountDiv = document.createElement('div');
+                            amountDiv.setAttribute('id', 'amount');
+                            amountDiv.innerHTML =  quota.amount;
+                            let moreInfoDiv = document.createElement('div');
+                            moreInfoDiv.setAttribute('id', 'moreinfo');
+                            moreInfoDiv.innerHTML = quota.farmer_name + ' | ' + quota.district + ' | ' + quota.village;
+                            li.append(idDiv, amountDiv, moreInfoDiv);                
+                            ul.insertBefore(li, ul.firstChild);
+
+                            let sum = 0;
+                            orderlist.querySelectorAll('ul li div#amount').forEach((item, index) => {                          
+                                sum = sum + parseInt(item.innerHTML);
+                            })
+                            document.querySelector('.added-orders-sum #sum').innerHTML = 'مجموع وزن حواله ها :' + sum;
+                        } else {
+                            console.log('exict but already exported');
+                        }
+                    } else {
+                        console.log('does not exict');
+                    }
+                }, 50);
+            } else {
+                console.log('already exict');
+            }
+        }
+    })
+
+    document.querySelector('#actionbtns #confirm').addEventListener('click', (event) => {
+        let contract__numbers = [];
+        document.querySelectorAll('.added-orders-list ul li div#number').forEach((item, index) => {
+            contract__numbers.push(item.innerHTML);
+        })
+        console.log(contract__numbers);
+        
     })
 })

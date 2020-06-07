@@ -78,11 +78,10 @@ document.addEventListener('DOMContentLoaded', (e) => {
     })
 
     document.querySelector('#actionbtns #confirm').addEventListener('click', (event) => {
-        let contract__numbers = [];
+        let contract_numbers = [];
         document.querySelectorAll('.added-orders-list ul li div#number').forEach((item, index) => {
-            contract__numbers.push(item.innerHTML);
+            contract_numbers.push(item.innerHTML);
         })
-        console.log(contract__numbers);
-        
+        console.log(contract_numbers, customer_id);
     })
 })

@@ -103,7 +103,7 @@ function customerIndex() {
                             item.classList.add('list-group-item-active');
                             item.lastChild.classList.add('show');
                         }
-                    }) 
+                    })
                 })
                 ul.appendChild(li);
             })
@@ -154,9 +154,7 @@ function customerCreate(form) {
 /*******
  * edit a specific customer
  */
-function customerEdit() {
-    console.log(customer_id);
-    
+function customerEdit() { 
     let fisrtname = document.getElementById('editfirstname');
     let lastname = document.getElementById('editlastname');
     let number = document.getElementById('editnumber');

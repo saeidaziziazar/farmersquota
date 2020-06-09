@@ -79,9 +79,16 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
     document.querySelector('#actionbtns #confirm').addEventListener('click', (event) => {
         let contract_numbers = [];
+        let sum = 0;
+        document.querySelectorAll('.added-orders-list ul li div#amount').forEach((item, index) => {                          
+            sum = sum + parseInt(item.innerHTML);
+        })
+
         document.querySelectorAll('.added-orders-list ul li div#number').forEach((item, index) => {
             contract_numbers.push(item.innerHTML);
         })
+
         console.log(contract_numbers, customer_id);
+        orderController.assignQuotasToOrder(sum, contract_numbers, customer_id);
     })
 })

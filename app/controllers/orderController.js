@@ -16,6 +16,10 @@ export function assignQuotasToOrder(amount, contract_numbers, customer_id) {
     order.description = '';
     order.customer_id = customer_id;
     order.save();
-    console.log(order);
-    console.log(order.quotas());
+    
+    contract_numbers.forEach((item) => {
+        let quota = Quota.getQuotaByNumber(item);
+        quota.order_id = order.id;
+        quota.save();
+    })
 }

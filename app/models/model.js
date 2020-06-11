@@ -29,23 +29,25 @@ export default class Model {
     }
 
     save() {
+        let insertId;
         let data = {};
         let query = "INSERT INTO " + this.constructor.getTableName() + " SET ?";
 
         Object.keys(this).forEach((item) => {
             data[item] = this[item];
+        });
+
+        connection.query(query, data, function (error, result, fields) {
+            if (error) throw error;
+            insertId = result.insertId;
         })
 
-        this.id = 3;
-
-        // connection.query(query, data, function (error, result, fields) {
-        //     if (error) throw error;
-        // })
+        setTimeout(() => {
+            this.id = insertId;
+        }, 100);
     }
 
     hasMany(ref_table) {
-        console.log(ref_table, this.constructor.name.toLocaleLowerCase(), this.id);
-
         let foreign = this.constructor.name.toLocaleLowerCase() + "_id";
         let query = "SELECT * FROM " + ref_table + " WHERE " + foreign + " = " + this.id;
 

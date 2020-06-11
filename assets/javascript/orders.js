@@ -87,8 +87,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
         document.querySelectorAll('.added-orders-list ul li div#number').forEach((item, index) => {
             contract_numbers.push(item.innerHTML);
         })
-
-        console.log(contract_numbers, customer_id);
+        
         orderController.assignQuotasToOrder(sum, contract_numbers, customer_id);
     })
 })

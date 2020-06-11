@@ -6,8 +6,6 @@ export default class Order extends Model {
     }
 
     quotas() {
-        console.log(this.id);
-        
         return this.hasMany('quotas');
     }
 }

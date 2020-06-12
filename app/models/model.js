@@ -29,22 +29,30 @@ export default class Model {
     }
 
     save() {
-        let insertId;
+        let insertedId;
+        let query;
         let data = {};
-        let query = "INSERT INTO " + this.constructor.getTableName() + " SET ?";
 
         Object.keys(this).forEach((item) => {
             data[item] = this[item];
         });
 
-        connection.query(query, data, function (error, result, fields) {
-            if (error) throw error;
-            insertId = result.insertId;
-        })
+        setTimeout(() => {
+            if (this.id) {
+                query = "UPDATE " + this.constructor.getTableName() + " SET ? WHERE id = " + this.id;
+            } else {
+                query = "INSERT INTO " + this.constructor.getTableName() + " SET ?";
+            }
+            connection.query(query, data, function (error, result, fields) {
+                if (error) throw error;
+                insertedId = result.insertId;
+            })
+        }, 100);
 
         setTimeout(() => {
-            this.id = insertId;
-        }, 100);
+            if (insertedId != 0)
+                this.id = insertedId;
+        }, 200);
     }
 
     hasMany(ref_table) {

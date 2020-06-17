@@ -21,4 +21,5 @@ export default class Quota extends Model {
         
         return quota;
     }
+
 }

@@ -1,8 +1,8 @@
 import Order from '../models/order.js';
 import Quota from '../models/quota.js';
 
-export function getOrdersOfCustomer() {
-    
+export function getOrdersOfCustomer(customer_id) {
+    return Order.getOrdersByCustomerId(customer_id);
 }
 
 export function getQuota(contract_number) {

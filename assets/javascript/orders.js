@@ -6,10 +6,31 @@ document.addEventListener('DOMContentLoaded', (e) => {
     setTimeout(() => {
         document.querySelectorAll('.customers .list-group .list-group-item').forEach((item) => {
             item.addEventListener('click', (e) => {
-                getOrders(item.querySelector('input[type=hidden]').value);
+                document.querySelector('.orders .add-btn').classList.add('add-btn-show');
+                let orders = orderController.getOrdersOfCustomer(item.querySelector('input[type=hidden]').value);
+                
+                setTimeout(() => {
+                    let i = 1;
+                    let list = document.querySelector('.orders .orders-list table tbody');
+                    orders.forEach((order, index) => {
+                        console.log(order.date.toISOString().slice(0, 10).replace('T', ' '));
+                        let tr = document.createElement('tr');
+
+                        let num = document.createElement('td');
+                        num.innerHTML = i;
+                        let date = document.createElement('td');
+                        date.innerHTML = order.date.toISOString().slice(0, 10);
+
+                        tr.appendChild(num);
+                        tr.appendChild(date);
+                        list.appendChild(tr);
+
+                        i++;
+                    })
+                }, 100);
             })
         }) 
-    }, 1000);
+    }, 100);
 
     // slide up new order form
     document.querySelector('.orders .add-btn').addEventListener('click', (e) => {

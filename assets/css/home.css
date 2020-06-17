@@ -211,6 +211,47 @@ footer {
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
+.orders-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: scroll;
+  z-index: 4;
+  padding: 10px 0 10px 0;
+}
+.orders-list::-webkit-scrollbar {
+  height: 5px !important;
+}
+.orders-list::-webkit-scrollbar-track {
+  background-color: rgba(44, 53, 49, 0.5);
+}
+.orders-list::-webkit-scrollbar-thumb {
+  background-color: #D1E8E2;
+}
+.orders-list table {
+  width: 150%;
+  border-collapse: collapse;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+.orders-list table tr {
+  border-bottom: 1px solid #D1E8E2;
+}
+.orders-list table td {
+  text-align: center;
+  padding: 10px;
+}
+.orders .add-btn {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s ease-in;
+  z-index: 6;
+}
+.orders .add-btn-show {
+  visibility: visible;
+  opacity: 1;
+}
 .orders div.new-order {
   background-color: #116466;
   position: absolute;

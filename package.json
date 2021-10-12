@@ -9,7 +9,7 @@
   "author": "saeedaziziazar",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^8.2.5"
+    "electron": "^11.5.0"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",
